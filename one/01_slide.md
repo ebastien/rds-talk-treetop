@@ -138,10 +138,11 @@ implementations lead to non-context-free grammars.
 
 !SLIDE
 ## References ##
-* [Treetop](http://treetop.rubyforge.org/)
+* [The Science of Insecurity](http://www.youtube.com/watch?v=3kEfedtQVOY)
+* [Regular Expression Matching Can Be Simple And Fast](http://swtch.com/~rsc/regexp/regexp1.html)
 * [Parsing Expression Grammars paper](http://pdos.csail.mit.edu/papers/parsing%3Apopl04.pdf)
 * [Parsing Expression Grammars slides](http://www.brynosaurus.com/pub/lang/peg-slides.pdf)
 * [Packrat Parsing and PEGs Page](http://bford.info/packrat/)
-* [Regular Expression Matching Can Be Simple And Fast](http://swtch.com/~rsc/regexp/regexp1.html)
+* [Treetop](http://treetop.rubyforge.org/)
 * [Shunting-yard algorithm](http://en.wikipedia.org/wiki/Shunting_yard_algorithm)
 
