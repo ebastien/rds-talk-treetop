@@ -1,0 +1,101 @@
+grammar SimpleLucene
+  rule query
+    disjunction
+  end
+
+  rule space
+    ' '*
+  end
+
+  rule disjunction
+    conjunction r:(space 'OR' space conjunction)+ {
+      def tree
+        [:or, conjunction.tree] + r.elements.map { |e| e.conjunction.tree }
+      end
+    }
+    /
+    conjunction
+  end
+
+  rule conjunction
+    primary r:(space 'AND' space primary)+ {
+      def tree
+        [:and, primary.tree] + r.elements.map { |e| e.primary.tree }
+      end
+    }
+    /
+    primary
+  end
+
+  rule primary
+    '(' space query space ')' {
+      def tree
+        query.tree
+      end
+    }
+    /
+    field ':' term {
+      def tree
+        [field.name, term.text]
+      end
+    }
+    /
+    term {
+      def tree
+        [nil, text]
+      end
+    }
+  end
+
+  rule field
+    [a-zA-Z] [a-zA-Z0-9]* {
+      def name
+        text_value
+      end
+    }
+  end
+
+  rule term
+    word / phrase
+  end
+
+  rule word
+    (escape / letter)+ {
+      def text
+        elements.map(&:text).join
+      end
+    }
+  end
+
+  rule phrase
+    '"' p:(l:escape / !["\\] l:anychar)* '"' {
+      def text
+        p.elements.map { |e| e.l.text }.join
+      end
+    }
+  end
+
+  rule escape
+    "\\" c:["\\():] {
+      def text
+        c.text_value
+      end
+    }
+  end
+
+  rule anychar
+    . {
+      def text
+        text_value
+      end
+    }
+  end
+
+  rule letter
+    [a-zA-Z0-9] {
+      def text
+        text_value
+      end
+    }
+  end
+end
