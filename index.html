@@ -188,7 +188,7 @@ rivierarb
 <pre class="sh_ruby"><code># &lt;query&gt; ::= [ &lt;field&gt; ':' ] &lt;term&gt;
 # &lt;term&gt;  ::= &lt;word&gt; | '"' &lt;phrase&gt; '"'
 
-query = /(\w+:)?(\w+|\"([^\"]|\[\"])*\")/</code></pre></div>
+query = /^(\w+:)?(\w+|\"([^\"]|\[\"])*\")$/</code></pre></div>
 </div><div id="one/01_slide" class="slide " data-transition="none"><div class="content " ref="one/01_slide/12">
 <h2>Ruby <em>regular</em> expressions?</h2>
 
@@ -196,8 +196,9 @@ query = /(\w+:)?(\w+|\"([^\"]|\[\"])*\")/</code></pre></div>
 </div><div id="one/01_slide" class="slide center" data-transition="none"><div class="content center" ref="one/01_slide/13">
 <p><img src="./file/one/grep1p.png"/></p></div>
 </div><div id="one/01_slide" class="slide " data-transition="none"><div class="content " ref="one/01_slide/14">
-<pre><code>Today, regular expressions have also become a shining example of
-how ignoring good theory leads to bad programs.
+<pre><code>Today, regular expressions have also become a
+shining example of how ignoring good theory
+leads to bad programs.
 
 -- Russ Cox
 </code></pre></div>
