@@ -78,7 +78,7 @@ Subset of Lucene query syntax:
     # <query> ::= [ <field> ':' ] <term>
     # <term>  ::= <word> | '"' <phrase> '"'
 
-    query = /(\w+:)?(\w+|\"([^\"]|\\[\"])*\")/
+    query = /^(\w+:)?(\w+|\"([^\"]|\\[\"])*\")$/
 
 !SLIDE
 ## Ruby _regular_ expressions? ##
