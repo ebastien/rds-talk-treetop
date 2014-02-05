@@ -91,8 +91,9 @@ Subset of Lucene query syntax:
 
 !SLIDE
 
-    Today, regular expressions have also become a shining example of
-    how ignoring good theory leads to bad programs.
+    Today, regular expressions have also become a
+    shining example of how ignoring good theory
+    leads to bad programs.
 
     -- Russ Cox
 
